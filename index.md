@@ -1,7 +1,7 @@
 ---
 layout: default
-title: 我的第一個 GitHub Pages
+title: 首頁
 ---
 
-# 哈囉 👋
-這是我的第一個 GitHub Pages 網站。
+# 歡迎！
+這是我的第一個 GitHub Pages 網站（使用 Cayman 主題）。
