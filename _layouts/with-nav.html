@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<!-- 導覽列（會加在主題的 default 之上） -->
+<nav style="background:#f4f4f4;padding:10px;border-bottom:1px solid #ddd;margin-bottom:20px;">
+  <a href="{{ '/' | relative_url }}">首頁</a> |
+  <a href="{{ '/about' | relative_url }}">關於我</a> |
+  <a href="{{ '/blog' | relative_url }}">文章列表</a>
+</nav>
+
+<!-- 這裡會放各頁面的內容 -->
+{{ content }}
