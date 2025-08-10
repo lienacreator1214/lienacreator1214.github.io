@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html><head><meta charset="UTF-8"><title>Auth Callback</title></head>
+<body>
+<script>
+  // 這頁只給 OAuth 完成後用，交回 token
+  function receiveMessage(e){ if (!e.data || e.data !== 'authorizing:github') return; window.opener.postMessage('authorization:github:success', '*'); window.close(); }
+  window.addEventListener('message', receiveMessage, false);
+  window.opener && window.opener.postMessage('authorizing:github', '*');
+</script>
+</body></html>
