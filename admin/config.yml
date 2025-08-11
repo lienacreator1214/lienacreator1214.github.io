@@ -2,7 +2,7 @@ backend:
   name: github
   repo: lienacreator1214/lienacreator1214.github.io   # 你的 repo
   branch: main
-  base_url: https://YOUR-OAUTH-PROXY.example.com  # 第2步會換掉
+  base_url: https://decap-oauth-proxy.onrender.com
   auth_endpoint: /auth
 
 media_folder: "assets/uploads"
