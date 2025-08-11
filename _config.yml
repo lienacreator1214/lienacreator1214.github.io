@@ -5,3 +5,12 @@ plugins:
 - jekyll-remote-theme 
 show_excerpts: true
 timezone: Asia/Taipei
+nav:
+  - name: 首頁
+    link: /
+  - name: 文章
+    link: /blog
+  - name: 分類
+    link: /categories
+  - name: 關於
+    link: /about
