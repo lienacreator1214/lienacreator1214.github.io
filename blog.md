@@ -5,7 +5,6 @@ title: 文章列表
 
 <h1>文章列表</h1>
 
-<!-- 可點的分類快速連結（建議保留） -->
 <p>
   {% assign cats = site.posts | map: "category" | uniq | sort %}
   分類：
@@ -13,6 +12,17 @@ title: 文章列表
   {% for c in cats %}
     {% if c %}
       · <a href="{{ '/blog' | relative_url }}?category={{ c | uri_escape }}">{{ c }}</a>
+    {% endif %}
+  {% endfor %}
+</p>
+
+<p>
+  {% assign alltags = site.posts | map: "tags" | compact | join: "," | split: "," | uniq | sort %}
+  標籤：
+  <a href="{{ '/blog' | relative_url }}">全部</a>
+  {% for t in alltags %}
+    {% if t != "" %}
+      · <a href="{{ '/blog' | relative_url }}?tag={{ t | strip | uri_escape }}">{{ t | strip }}</a>
     {% endif %}
   {% endfor %}
 </p>
@@ -35,24 +45,39 @@ title: 文章列表
 </ul>
 
 <script>
-// 讀取網址參數並篩選
+// 讀取網址參數並篩選（支援 category 與 tag）
+// 用法：/blog?category=技術  或 /blog?tag=Jekyll
 (function () {
   var params = new URLSearchParams(location.search);
-  var cat = params.get('category');   // 之後我們也會支援 tag
+  var cat = params.get('category');
+  var tag = params.get('tag');
   var list = document.getElementById('post-list');
   if (!list) return;
 
+  function showFilterInfo(text) {
+    var p = document.createElement('p');
+    p.innerHTML = '目前篩選：<strong>' + text + '</strong>　<a href="' + (location.pathname) + '">清除</a>';
+    list.parentNode.insertBefore(p, list);
+  }
+
   if (cat) {
-    // 大小寫一致化
     var want = decodeURIComponent(cat).toLowerCase();
     Array.from(list.children).forEach(function (li) {
       var v = (li.getAttribute('data-category') || '').toLowerCase();
       li.style.display = (v === want) ? '' : 'none';
     });
-    // 顯示目前篩選
-    var p = document.createElement('p');
-    p.innerHTML = '目前篩選：<strong>' + cat + '</strong>　<a href="' + (location.pathname) + '">清除</a>';
-    list.parentNode.insertBefore(p, list);
+    showFilterInfo('分類 = ' + cat);
+    return; // 若同時有 cat 與 tag，就以 cat 為主
+  }
+
+  if (tag) {
+    var wantTag = decodeURIComponent(tag).toLowerCase();
+    Array.from(list.children).forEach(function (li) {
+      var tags = (li.getAttribute('data-tags') || '').toLowerCase().split(',');
+      var has = tags.map(function(s){return s.trim();}).includes(wantTag);
+      li.style.display = has ? '' : 'none';
+    });
+    showFilterInfo('標籤 = ' + tag);
   }
 })();
 </script>
