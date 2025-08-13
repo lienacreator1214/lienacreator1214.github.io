@@ -1,0 +1,11 @@
+.post-meta {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin-top: 24px;
+  font-size: .95rem;
+  color: #374151;
+}
+.post-meta a { text-decoration: none; border-bottom: 1px dashed #9ca3af; }
+.post-meta a:hover { border-bottom-style: solid; }
