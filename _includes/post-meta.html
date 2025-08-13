@@ -1,0 +1,21 @@
+{% assign cat = page.category | default: "" %}
+{% assign tags = page.tags | default: "" %}
+
+{% if cat != "" or tags != "" %}
+<hr style="margin:24px 0;">
+<div style="font-size:.95em; color:#555;">
+  {% if cat != "" %}
+    分類：
+    <a href="{{ '/blog' | relative_url }}?category={{ cat | uri_escape }}">{{ cat }}</a>
+  {% endif %}
+
+  {% if cat != "" and tags != "" %}｜{% endif %}
+
+  {% if tags != "" and tags.size > 0 %}
+    標籤：
+    {% for t in tags %}
+      <a href="{{ '/blog' | relative_url }}?tag={{ t | strip | uri_escape }}">{{ t | strip }}</a>{% unless forloop.last %}、{% endunless %}
+    {% endfor %}
+  {% endif %}
+</div>
+{% endif %}
