@@ -3,7 +3,7 @@
 
 {% if cat != "" or tags != "" %}
 <hr style="margin:24px 0;">
-<div style="font-size:.95em; color:#555;">
+<div class="post-meta">
   {% if cat != "" %}
     分類：
     <a href="{{ '/blog' | relative_url }}?category={{ cat | uri_escape }}">{{ cat }}</a>
