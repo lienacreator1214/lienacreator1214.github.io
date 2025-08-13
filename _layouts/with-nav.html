@@ -13,3 +13,6 @@ layout: default
 
 <!-- 這裡會放各頁面的內容 -->
 {{ content }}
+{% if page.path contains '_posts/' %}
+  {% include post-meta.html %}
+{% endif %}
