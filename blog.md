@@ -4,7 +4,12 @@ title: 文章列表
 ---
 
 <h1>文章列表</h1>
+{% assign total = site.posts | size %}
+<p style="color:#6b7280; margin-top:6px;">共 {{ total }} 篇文章</p>
+<p style="color:#6b7280; margin:0 0 12px;">以下依日期由新到舊排列</p>
 
+
+{% comment %}
 <p>
   {% assign cats = site.posts | map: "category" | uniq | sort %}
   分類：
@@ -26,7 +31,7 @@ title: 文章列表
     {% endif %}
   {% endfor %}
 </p>
-
+{% endcomment %}
 <ul id="post-list">
 {% for post in site.posts %}
   <li
