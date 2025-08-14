@@ -109,3 +109,107 @@ body {
   cursor: pointer;
 }
 
+
+/* ========= 主題變數（預設：跟隨系統） ========= */
+:root{
+  /* 內容區 */
+  --bg: #ffffff;
+  --fg: #111111;
+
+  /* 導覽列 */
+  --nav-bg: rgba(255,255,255,0.9);
+  --nav-border: #eeeeee;
+  --nav-link: #111111;
+  --nav-hover-bg: #f3f4f6;
+  --nav-active-bg: #111111;
+  --nav-active-fg: #ffffff;
+}
+
+/* 系統深色模式（沒有手動覆蓋時生效） */
+@media (prefers-color-scheme: dark){
+  :root{
+    --bg: #222222;
+    --fg: #eeeeee;
+
+    --nav-bg: rgba(34,34,34,0.9);
+    --nav-border: #444444;
+    --nav-link: #dddddd;
+    --nav-hover-bg: #333333;
+    --nav-active-bg: #ffffff;
+    --nav-active-fg: #111111;
+  }
+}
+
+/* 手動覆蓋：data-theme='light' / 'dark' 放在 <html> */
+[data-theme="light"]{
+  --bg: #ffffff;
+  --fg: #111111;
+
+  --nav-bg: rgba(255,255,255,0.9);
+  --nav-border: #eeeeee;
+  --nav-link: #111111;
+  --nav-hover-bg: #f3f4f6;
+  --nav-active-bg: #111111;
+  --nav-active-fg: #ffffff;
+}
+[data-theme="dark"]{
+  --bg: #222222;
+  --fg: #eeeeee;
+
+  --nav-bg: rgba(34,34,34,0.9);
+  --nav-border: #444444;
+  --nav-link: #dddddd;
+  --nav-hover-bg: #333333;
+  --nav-active-bg: #ffffff;
+  --nav-active-fg: #111111;
+}
+
+/* 全站底色/字色套用變數 */
+html, body{
+  background: var(--bg);
+  color: var(--fg);
+  transition: background-color .25s ease, color .25s ease;
+}
+
+/* ========= 簡約導覽列（使用變數） ========= */
+.site-nav{
+  position: sticky; top: 0; z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(180%) blur(6px);
+  border-bottom: 1px solid var(--nav-border);
+}
+.site-nav ul{
+  display: flex; justify-content: center; align-items: center; gap: 18px;
+  list-style: none; margin: 0; padding: 10px 48px 10px 12px; /* 右側空間留給按鈕 */
+  flex-wrap: wrap;
+}
+.site-nav a{
+  text-decoration: none;
+  color: var(--nav-link);
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 8px;
+  transition: background .2s ease, color .2s ease;
+}
+.site-nav a:hover, .site-nav a:focus{
+  background: var(--nav-hover-bg); outline: none;
+}
+.site-nav a[aria-current="page"]{
+  background: var(--nav-active-bg);
+  color: var(--nav-active-fg);
+}
+
+/* 右上角切換按鈕（在 nav 內定位） */
+.theme-toggle{
+  position: absolute; right: 12px; top: 8px;
+  background: transparent; border: 1px solid var(--nav-border);
+  border-radius: 8px; padding: 6px 8px; font-size: 16px;
+  color: var(--nav-link); cursor: pointer;
+  transition: background .2s ease, color .2s ease, border-color .2s ease;
+}
+.theme-toggle:hover{ background: var(--nav-hover-bg); }
+@media (max-width: 520px){
+  .site-nav ul{ gap: 10px; padding-right: 44px; }
+  .theme-toggle{ top: 6px; }
+}
+
