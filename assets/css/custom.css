@@ -67,3 +67,45 @@
 .profile-links a span{       /* 如果之後你想包文字，可保持同樣行高 */
   line-height:1.2;
 }
+/* 預設跟隨系統主題 */
+:root {
+  --bg-color: #fff;
+  --text-color: #111;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #222;
+    --text-color: #eee;
+  }
+}
+
+/* 主題覆蓋 */
+[data-theme="light"] {
+  --bg-color: #fff;
+  --text-color: #111;
+}
+
+[data-theme="dark"] {
+  --bg-color: #222;
+  --text-color: #eee;
+}
+
+/* 套用變數 */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 切換按鈕樣式 */
+#theme-toggle {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
