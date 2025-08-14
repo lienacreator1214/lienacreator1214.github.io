@@ -11,7 +11,11 @@ layout: default
     <li><a href="{{ '/categories' | relative_url }}" {% if page.url == '/categories' or page.url == '/categories.html' %}aria-current="page"{% endif %}>分類</a></li>
     <li><a href="{{ '/tags' | relative_url }}" {% if page.url == '/tags' or page.url == '/tags.html' %}aria-current="page"{% endif %}>標籤</a></li>
   </ul>
+
+  <!-- 右上角主題切換 -->
+  <button id="theme-toggle" class="theme-toggle" aria-label="切換主題" title="切換主題">🌙</button>
 </nav>
+
 
 
 <!-- 這裡會放各頁面的內容 -->
