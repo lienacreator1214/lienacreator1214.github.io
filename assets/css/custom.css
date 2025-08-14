@@ -123,6 +123,9 @@ body {
   --nav-hover-bg: #f3f4f6;
   --nav-active-bg: #111111;
   --nav-active-fg: #ffffff;
+
+  /* 新增：網站標題顏色 */
+  --title-color: #444444; /* 深灰色 */
 }
 
 /* 系統深色模式（沒有手動覆蓋時生效） */
@@ -137,6 +140,9 @@ body {
     --nav-hover-bg: #333333;
     --nav-active-bg: #ffffff;
     --nav-active-fg: #111111;
+
+    /* 深色模式下標題顏色 */
+    --title-color: #cccccc;
   }
 }
 
@@ -213,3 +219,11 @@ html, body{
   .theme-toggle{ top: 6px; }
 }
 
+/* 主頁標題 */
+.site-title,
+.site-header h1,
+.site-header h1 a {
+  color: var(--title-color);
+  text-decoration: none;
+  transition: color .25s ease;
+}
