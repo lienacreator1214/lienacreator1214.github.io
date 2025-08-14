@@ -24,6 +24,20 @@
 .profile-links a:hover{
   background:#111827;color:#fff;border-color:#111827
 }
+/* 讓圖示等寬、文字齊頭 */
+.profile-links a{
+  display:flex; align-items:center; gap:8px;
+  line-height:1.2; /* 讓行高一致 */
+}
+
 .profile-links i{
-  font-size:1rem;
+  font-size:1rem;            /* 統一圖示大小 */
+  width:1.25em;              /* 固定寬度（關鍵）*/
+  min-width:1.25em;          /* 防止被擠壓 */
+  text-align:center;         /* 圖示置中 */
+  flex:0 0 1.25em;           /* 不伸縮，保持固定寬 */
+}
+
+.profile-links a span{       /* 如果之後你想包文字，可保持同樣行高 */
+  line-height:1.2;
 }
