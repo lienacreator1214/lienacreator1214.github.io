@@ -8,30 +8,6 @@ title: 文章列表
 <p style="color:#6b7280; margin-top:6px;">共 {{ total }} 篇文章</p>
 <p style="color:#6b7280; margin:0 0 12px;">以下依日期由新到舊排列</p>
 
-
-{% comment %}
-<p>
-  {% assign cats = site.posts | map: "category" | uniq | sort %}
-  分類：
-  <a href="{{ '/blog' | relative_url }}">全部</a>
-  {% for c in cats %}
-    {% if c %}
-      · <a href="{{ '/blog' | relative_url }}?category={{ c | uri_escape }}">{{ c }}</a>
-    {% endif %}
-  {% endfor %}
-</p>
-
-<p>
-  {% assign alltags = site.posts | map: "tags" | compact | join: "," | split: "," | uniq | sort %}
-  標籤：
-  <a href="{{ '/blog' | relative_url }}">全部</a>
-  {% for t in alltags %}
-    {% if t != "" %}
-      · <a href="{{ '/blog' | relative_url }}?tag={{ t | strip | uri_escape }}">{{ t | strip }}</a>
-    {% endif %}
-  {% endfor %}
-</p>
-{% endcomment %}
 <ul id="post-list">
 {% for post in site.posts %}
   <li
