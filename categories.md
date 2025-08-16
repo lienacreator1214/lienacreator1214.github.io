@@ -3,7 +3,7 @@ layout: with-nav
 title: 分類
 ---
 
-<h1>分類</h1>
+<p style="color:#6b7280; margin-top:6px;">ㅤ</p>
 <ul>
   {% assign cats = site.posts | map: "category" | uniq | sort %}
   {% for c in cats %}
