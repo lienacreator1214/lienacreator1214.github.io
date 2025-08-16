@@ -11,14 +11,14 @@ title: 文章列表
 <ul id="post-list">
 {% for post in site.posts %}
   <li
-    data-category="{{ post.category | escape }}"
+    data-categories="{{ post.categories | escape }}"
     data-tags="{% if post.tags %}{{ post.tags | join: ',' | escape }}{% endif %}"
     style="margin-bottom:12px;"
   >
     <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     <small>
       ({{ post.date | date: "%Y-%m-%d" }})
-      {% if post.category %}｜分類：{{ post.category }}{% endif %}
+      {% if post.categories %}｜分類：{{ post.categories }}{% endif %}
       {% if post.tags and post.tags.size > 0 %}｜標籤：{{ post.tags | join: ', ' }}{% endif %}
     </small>
   </li>
@@ -26,11 +26,11 @@ title: 文章列表
 </ul>
 
 <script>
-// 讀取網址參數並篩選（支援 category 與 tag）
-// 用法：/blog?category=技術  或 /blog?tag=Jekyll
+// 讀取網址參數並篩選（支援 categories 與 tag）
+// 用法：/blog?categories=技術  或 /blog?tag=Jekyll
 (function () {
   var params = new URLSearchParams(location.search);
-  var cat = params.get('category');
+  var cat = params.get('categories');
   var tag = params.get('tag');
   var list = document.getElementById('post-list');
   if (!list) return;
@@ -44,7 +44,7 @@ title: 文章列表
   if (cat) {
     var want = decodeURIComponent(cat).toLowerCase();
     Array.from(list.children).forEach(function (li) {
-      var v = (li.getAttribute('data-category') || '').toLowerCase();
+      var v = (li.getAttribute('data-categories') || '').toLowerCase();
       li.style.display = (v === want) ? '' : 'none';
     });
     showFilterInfo('分類 = ' + cat);
