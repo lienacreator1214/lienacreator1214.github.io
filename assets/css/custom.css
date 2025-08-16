@@ -68,6 +68,9 @@
   line-height:1.2;
 }
 
-:root { --nav-h: 56px; }
-.site-nav { min-height: var(--nav-h); }
-.wrapper > header { margin-top: var(--nav-h); }
+/* 讓左側欄頂端與導覽列底線對齊 */
+.wrapper > header { margin-top: 56px; }  /* 依你的導覽列高度微調 */
+@media (max-width: 520px){
+  .wrapper > header { margin-top: 64px; }
+}
+
