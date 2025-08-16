@@ -23,8 +23,6 @@ ul.post-list small { color: #6b7280; } /* 次要文字 */
 ul.post-list p { margin: 8px 0 0; color: #374151; }
 </style>
 
-# 我的文章
-
 <ul class="post-list">
 {% for post in site.posts %}
   <li>
