@@ -14,3 +14,7 @@ nav:
     link: /categories
   - name: 關於
     link: /about
+markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: true
