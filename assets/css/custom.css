@@ -69,7 +69,7 @@
 }
 
 /* 讓左側欄頂端與導覽列底線對齊 */
-.wrapper > header { margin-top: 40px; }  /* 依你的導覽列高度微調 */
+.wrapper > header { margin-top: 32px; }  /* 依你的導覽列高度微調 */
 @media (max-width: 520px){
   .wrapper > header { margin-top: 64px; }
 }
