@@ -10,8 +10,8 @@ nav:
     link: /
   - name: 文章
     link: /blog
-  - name: 分類
-    link: /categories
+  - name: 標籤
+    link: /tags
   - name: 關於
     link: /about
 markdown: kramdown
