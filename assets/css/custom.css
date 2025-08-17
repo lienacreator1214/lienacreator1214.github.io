@@ -1,333 +1,103 @@
 /* ====== 基本文章樣式 ====== */
-.post-meta {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 12px 14px;
-  margin-top: 24px;
-  font-size: .95rem;
-  color: #374151;
+.post-meta{
+  background:#f9fafb;border:1px solid #e5e7eb;border-radius:10px;
+  padding:12px 14px;margin-top:24px;font-size:.95rem;color:#374151;
 }
-.post-meta a {
-  text-decoration: none;
-  border-bottom: 1px dashed #9ca3af;
-}
-.post-meta a:hover { border-bottom-style: solid; }
+.post-meta a{ text-decoration:none;border-bottom:1px dashed #9ca3af; }
+.post-meta a:hover{ border-bottom-style:solid; }
 
-.post-header {
-  margin: 0 0 16px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #e5e7eb;
-}
-.post-title { margin: 0 0 6px; }
-.post-meta-date { margin: 0; color:#6b7280; }
+/* 文章標題區 */
+.post-header{ margin:0 0 16px; }
+.post-title{ margin:0 0 6px; }
+.post-meta-date{ margin:0; color:#6b7280; }
+/* 標題下那條分隔線（放在 post-with-nav 裡的 <hr class="post-title-sep">）*/
+.post-title-sep{ margin:10px 0 0; border:none; border-top:1px solid #e5e7eb; }
 
-.post-content { margin-top: 12px; }
-.post-content::after { content:""; display:block; clear:both; }
+/* 內文 */
+.post-content{ margin-top:16px; }
+.post-content::after{ content:""; display:block; clear:both; }
 
-.post-sep {
-  margin:24px 0;
-  border:none;
-  border-top:1px solid #e5e7eb;
+/* 文末 */
+.post-sep{ margin:24px 0; border:none; border-top:1px solid #e5e7eb; }
+.post-tags a{ text-decoration:none; border-bottom:1px dashed #9ca3af; padding-bottom:1px; }
+.post-tags a:hover{ border-bottom-color:#111; }
+.post-pager{
+  display:flex; justify-content:space-between; gap:12px;
+  margin-top:24px; padding-top:16px; border-top:1px solid #e5e7eb;
 }
-
-.post-tags a {
-  text-decoration:none;
-  border-bottom:1px dashed #9ca3af;
-  padding-bottom:1px;
-}
-.post-tags a:hover { border-bottom-color:#111; }
-
-.post-pager {
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  margin-top:24px;
-  padding-top:16px;
-  border-top:1px solid #e5e7eb;
-}
-.post-pager a { text-decoration:none; }
+.post-pager a{ text-decoration:none; }
 
 /* ====== 左側個人卡片 ====== */
-.profile-card {
-  margin-top:16px;
-  padding:14px;
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  background:#f9fafb;
+.profile-card{
+  margin-top:16px; padding:14px; border:1px solid #e5e7eb;
+  border-radius:12px; background:#f9fafb;
 }
-.profile-avatar {
-  width:96px; height:96px;
-  border-radius:9999px;
-  object-fit:cover;
-  display:block;
-  margin:0 0 10px;
+.profile-avatar{
+  width:96px; height:96px; border-radius:9999px; object-fit:cover;
+  display:block; margin:0 0 10px;
 }
-.profile-bio {
-  margin:0 0 10px;
-  color:#374151;
-  font-size:.95rem;
-  line-height:1.5;
+.profile-bio{ margin:0 0 10px; color:#374151; font-size:.95rem; line-height:1.5; }
+.profile-links a{
+  display:flex; align-items:center; gap:8px; margin:0 0 8px; padding:6px 10px;
+  border:1px solid #d1d5db; border-radius:9999px; text-decoration:none;
+  color:#111827; font-size:.9rem; line-height:1.2;
 }
-.profile-links a {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin:0 0 8px;
-  padding:6px 10px;
-  border:1px solid #d1d5db;
-  border-radius:9999px;
-  text-decoration:none;
-  color:#111827;
-  font-size:.9rem;
-  line-height:1.2;
-}
-.profile-links a:hover {
-  background:#111827;
-  color:#fff;
-  border-color:#111827;
-}
-.profile-links i {
-  font-size:1rem;
-  width:1.25em; min-width:1.25em;
-  text-align:center;
-  flex:0 0 1.25em;
+.profile-links a:hover{ background:#111827; color:#fff; border-color:#111827; }
+.profile-links i{
+  font-size:1rem; width:1.25em; min-width:1.25em; text-align:center; flex:0 0 1.25em;
 }
 
-/* ====== 導覽列 ====== */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: saturate(180%) blur(6px);
-  border-bottom: 1px solid #eee;
+/* ====== 導覽列（滿版置頂） ====== */
+.site-nav{
+  position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.9);
+  backdrop-filter:saturate(180%) blur(6px); border-bottom:1px solid #eee;
 }
-.site-nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  list-style: none;
-  margin: 0;
-  padding: 10px 12px;
-  flex-wrap: wrap;
+.site-nav ul{
+  display:flex; justify-content:center; align-items:center; gap:18px;
+  list-style:none; margin:0; padding:10px 12px; flex-wrap:wrap;
 }
-.site-nav a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
+.site-nav a{
+  text-decoration:none; color:#111; font-weight:500; padding:6px 12px; border-radius:8px;
+  transition:background .2s ease, color .2s ease, box-shadow .2s ease;
 }
-.site-nav a:hover, .site-nav a:focus {
-  background: #f3f4f6;
-  outline: none;
-}
-.site-nav a[aria-current="page"] {
-  background: #111;
-  color: #fff;
+.site-nav a:hover, .site-nav a:focus{ background:#f3f4f6; outline:none; }
+.site-nav a[aria-current="page"]{ background:#111; color:#fff; }
+/* 導覽列下方與主版面留白 */
+.site-nav + .layout{ margin-top:12px; }
+
+/* ====== 兩欄版面（導覽列下方） ====== */
+.layout{
+  display:grid; grid-template-columns:260px 1fr; gap:24px;
+  max-width:1200px; margin:0 auto; padding:0 16px 24px;
 }
 
-/* ====== 間距修正 ====== */
-.wrapper > header { margin-top: 32px; } /* 導覽列下方 */
-.page-content { margin-top: 2rem; }
-
-/* ====== 基本文章樣式 ====== */
-.post-meta {
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 12px 14px;
-  margin-top: 24px;
-  font-size: .95rem;
-  color: #374151;
-}
-.post-meta a {
-  text-decoration: none;
-  border-bottom: 1px dashed #9ca3af;
-}
-.post-meta a:hover { border-bottom-style: solid; }
-
-.post-header {
-  margin: 0 0 16px;
-  padding-bottom: 6px;
-  border-bottom: 1px solid #e5e7eb;
-}
-.post-title { margin: 0 0 6px; }
-.post-meta-date { margin: 0; color:#6b7280; }
-
-.post-content { margin-top: 12px; }
-.post-content::after { content:""; display:block; clear:both; }
-
-.post-sep {
-  margin:24px 0;
-  border:none;
-  border-top:1px solid #e5e7eb;
+/* 左欄：卡片＋與右欄的襯線 */
+.sidebar{
+  position:sticky; top:32px; align-self:start;
+  border-right:1px solid #e5e7eb; padding-right:16px;
 }
 
-.post-tags a {
-  text-decoration:none;
-  border-bottom:1px dashed #9ca3af;
-  padding-bottom:1px;
-}
-.post-tags a:hover { border-bottom-color:#111; }
+/* 右欄：內容 */
+.page-content{ min-width:0; }
 
-.post-pager {
-  display:flex;
-  justify-content:space-between;
-  gap:12px;
-  margin-top:24px;
-  padding-top:16px;
-  border-top:1px solid #e5e7eb;
-}
-.post-pager a { text-decoration:none; }
-
-/* ====== 左側個人卡片 ====== */
-.profile-card {
-  margin-top:16px;
-  padding:14px;
-  border:1px solid #e5e7eb;
-  border-radius:12px;
-  background:#f9fafb;
-}
-.profile-avatar {
-  width:96px; height:96px;
-  border-radius:9999px;
-  object-fit:cover;
-  display:block;
-  margin:0 0 10px;
-}
-.profile-bio {
-  margin:0 0 10px;
-  color:#374151;
-  font-size:.95rem;
-  line-height:1.5;
-}
-.profile-links a {
-  display:flex;
-  align-items:center;
-  gap:8px;
-  margin:0 0 8px;
-  padding:6px 10px;
-  border:1px solid #d1d5db;
-  border-radius:9999px;
-  text-decoration:none;
-  color:#111827;
-  font-size:.9rem;
-  line-height:1.2;
-}
-.profile-links a:hover {
-  background:#111827;
-  color:#fff;
-  border-color:#111827;
-}
-.profile-links i {
-  font-size:1rem;
-  width:1.25em; min-width:1.25em;
-  text-align:center;
-  flex:0 0 1.25em;
-}
-
-/* ====== 導覽列 ====== */
-.site-nav {
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,0.9);
-  backdrop-filter: saturate(180%) blur(6px);
-  border-bottom: 1px solid #eee;
-}
-.site-nav ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  list-style: none;
-  margin: 0;
-  padding: 10px 12px;
-  flex-wrap: wrap;
-}
-.site-nav a {
-  text-decoration: none;
-  color: #111;
-  font-weight: 500;
-  padding: 6px 12px;
-  border-radius: 8px;
-  transition: background .2s ease, color .2s ease, box-shadow .2s ease;
-}
-.site-nav a:hover, .site-nav a:focus {
-  background: #f3f4f6;
-  outline: none;
-}
-.site-nav a[aria-current="page"] {
-  background: #111;
-  color: #fff;
-}
-
-/* ====== 間距修正 ====== */
-.wrapper > header { margin-top: 32px; } /* 導覽列下方 */
-.page-content { margin-top: 2rem; }
-
-/* 桌面版：右側文章區塊避開左側卡片 */
-@media (min-width: 768px) {
-  .post-content {
-    margin-left: 260px; /* 視左側卡片寬度調整 */
+/* ====== 手機版（上下堆疊） ====== */
+@media (max-width:768px){
+  .layout{ grid-template-columns:1fr; }
+  .sidebar{
+    position:relative; top:auto; border-right:none;
+    border-bottom:1px solid #e5e7eb; padding-right:0; margin-bottom:16px;
   }
 }
 
-/* 手機版微調 */
-@media (max-width: 520px) {
-  .site-nav ul { gap: 10px; }
-  .site-nav a { padding: 6px 10px; font-size: 15px; }
-  .wrapper > header { margin-top: 64px; }
+/* ====== 小螢幕導覽列微調 ====== */
+@media (max-width:520px){
+  .site-nav ul{ gap:10px; }
+  .site-nav a{ padding:6px 10px; font-size:15px; }
 }
 
-
-/* 手機版微調 */
-@media (max-width: 520px) {
-  .site-nav ul { gap: 10px; }
-  .site-nav a { padding: 6px 10px; font-size: 15px; }
-  .wrapper > header { margin-top: 64px; }
-}
-
-
-/* 左右兩欄 */
-.layout {
-  display: grid;
-  grid-template-columns: 260px 1fr;
-  gap: 24px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 24px 16px;
-}
-
-/* 左邊卡片 */
-.sidebar {
-  position: sticky;
-  top: 32px;
-  align-self: start;
-}
-
-/* 右側內容 */
-.page-content {
-  min-width: 0;
-}
-
-/* 文章標題與內容避免重疊，留間距 */
-.post-header {
-  margin-bottom: 24px;
-}
-
-/* 手機版 */
-@media (max-width: 768px) {
-  .layout {
-    grid-template-columns: 1fr;
-  }
-  .sidebar {
-    position: relative;
-    top: auto;
-    margin-bottom: 24px;
-  }
-}
+/* ====== 舊規則清理備註（請確認你已刪掉） ======
+  1) 刪除任何：
+     .page-content { margin-left: ... } 或 .post-content { margin-left: ... }
+     以免把內文推到右邊。
+  2) 若 style.css 有對 section / article 額外 float/inline-block，請移除。
+================================================ */
