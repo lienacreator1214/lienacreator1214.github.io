@@ -9,7 +9,7 @@ media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-   - name: "posts"
+  - name: "posts"
     label: "文章"
     folder: "_posts"
     create: true
@@ -17,7 +17,5 @@ collections:
     fields:
       - { label: "標題", name: "title", widget: "string" }
       - { label: "發佈日期", name: "date", widget: "datetime" }
-
-      # 標籤：使用 list，任意新增
       - { label: "標籤", name: "tags", widget: "list", default: [] }
       - { label: "內文", name: "body", widget: "markdown" }
