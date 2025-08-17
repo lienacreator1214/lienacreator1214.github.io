@@ -9,16 +9,7 @@ media_folder: "assets/uploads"
 public_folder: "/assets/uploads"
 
 collections:
-  - name: "categories"
-    label: "分類"
-    label_singular: "分類"
-    folder: "_categories"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - { label: "名稱", name: "title", widget: "string", hint: "例如：生活、技術、隨筆" }
-
-  - name: "posts"
+   - name: "posts"
     label: "文章"
     folder: "_posts"
     create: true
