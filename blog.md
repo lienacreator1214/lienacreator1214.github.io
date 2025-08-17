@@ -11,14 +11,12 @@ title: 文章列表
 <ul id="post-list">
 {% for post in site.posts %}
   <li
-    data-category="{% if post.categories %}{{ post.categories | join: ',' | escape }}{% endif %}"
     data-tags="{% if post.tags %}{{ post.tags | join: ',' | escape }}{% endif %}"
     style="margin-bottom:12px;"
   >
     <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
     <small>
       ({{ post.date | date: "%Y-%m-%d" }})
-      {% if post.categories and post.categories.size > 0 %}｜分類：{{ post.categories | join: '、' }}{% endif %}
       {% if post.tags and post.tags.size > 0 %}｜標籤：{{ post.tags | join: ', ' }}{% endif %}
     </small>
   </li>
@@ -26,11 +24,10 @@ title: 文章列表
 </ul>
 
 <script>
-// 讀取網址參數並篩選（category / tag）
-// 用法：/blog?category=技術  或 /blog?tag=Jekyll
+// 讀取網址參數並篩選（tag）
+// 用法：/blog?tag=Jekyll
 (function () {
   var params = new URLSearchParams(location.search);
-  var cat = params.get('category');
   var tag = params.get('tag');
   var list = document.getElementById('post-list');
   if (!list) return;
@@ -40,17 +37,6 @@ title: 文章列表
     p.style.margin = '0 0 8px';
     p.innerHTML = '目前篩選：<strong>' + text + '</strong>　<a href="' + (location.pathname) + '">清除</a>';
     list.parentNode.insertBefore(p, list);
-  }
-
-  if (cat) {
-    var want = decodeURIComponent(cat).toLowerCase();
-    Array.from(list.children).forEach(function (li) {
-      var v = (li.getAttribute('data-category') || '').toLowerCase().split(',');
-      var has = v.map(function(s){return s.trim();}).includes(want);
-      li.style.display = has ? '' : 'none';
-    });
-    showFilterInfo('分類 = ' + cat);
-    return; // 若同時有 cat 與 tag，就以 cat 為主
   }
 
   if (tag) {
