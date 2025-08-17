@@ -291,3 +291,43 @@
   .site-nav a { padding: 6px 10px; font-size: 15px; }
   .wrapper > header { margin-top: 64px; }
 }
+
+
+/* 左右兩欄 */
+.layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* 左邊卡片 */
+.sidebar {
+  position: sticky;
+  top: 32px;
+  align-self: start;
+}
+
+/* 右側內容 */
+.page-content {
+  min-width: 0;
+}
+
+/* 文章標題與內容避免重疊，留間距 */
+.post-header {
+  margin-bottom: 24px;
+}
+
+/* 手機版 */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: relative;
+    top: auto;
+    margin-bottom: 24px;
+  }
+}
