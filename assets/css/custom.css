@@ -101,3 +101,24 @@
      以免把內文推到右邊。
   2) 若 style.css 有對 section / article 額外 float/inline-block，請移除。
 ================================================ */
+
+/* ---- 全頁中線（放在 layout 容器上）---- */
+:root{
+  --sidebar: 260px;   /* 左欄寬，和 .layout 的 260px 保持一致 */
+  --gap: 24px;        /* 欄間距，和 .layout 的 gap 一致 */
+  --divider: #e5e7eb; /* 中線顏色 */
+}
+
+.layout{
+  position: relative; /* 讓 ::before 定位在 layout 內 */
+}
+
+.layout::before{
+  content:"";
+  position:absolute;
+  top:0;
+  bottom:0;                                     /* 從上畫到下 */
+  left: calc(var(--sidebar) + var(--gap)/2);    /* 放在左右欄中間 */
+  width:1px;
+  background: var(--divider);
+}
