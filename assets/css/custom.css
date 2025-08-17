@@ -73,4 +73,25 @@
 @media (max-width: 520px){
   .wrapper > header { margin-top: 64px; }
 }
+.page-content {
+  margin-top: 2rem; /* 跟首頁看齊 */
+}
 
+.post-header .post-title{ margin: 0 0 6px; }
+.post-meta-date{ color:#6b7280; margin:0 0 16px; }
+
+.post-sep{ margin:24px 0; border:none; border-top:1px solid #e5e7eb; }
+
+.post-tags a{
+  text-decoration:none; border-bottom:1px dashed #9ca3af; padding-bottom:1px;
+}
+.post-tags a:hover{ border-bottom-color:#111; }
+
+.post-pager{
+  display:flex; justify-content:space-between; gap:12px; margin-top:24px; padding-top:16px; border-top:1px solid #e5e7eb;
+}
+.post-pager a{
+  text-decoration:none;
+}
+.post-pager .prev a::before{ content:""; }
+.post-pager .next a::after{ content:""; }
