@@ -73,8 +73,7 @@
 
 /* 左欄：卡片＋與右欄的襯線 */
 .sidebar{
-  position:sticky; top:32px; align-self:start;
-  border-right:1px solid #e5e7eb; padding-right:16px;
+    padding-right:16px;
 }
 
 /* 右欄：內容 */
