@@ -95,3 +95,14 @@
 }
 .post-pager .prev a::before{ content:""; }
 .post-pager .next a::after{ content:""; }
+
+
+.site-nav + section { margin-top: 12px; }
+.post-header { margin: 0 0 16px; padding-bottom: 6px; border-bottom: 1px solid #e5e7eb; }
+.post-title { margin: 0 0 6px; }
+.post-meta-date { margin: 0; color: #6b7280; }
+.post-content { margin-top: 12px; }
+.post-content::after { content:""; display:block; clear:both; }
+.post-sep{ margin:24px 0; border:none; border-top:1px solid #e5e7eb; }
+.post-pager{ display:flex; justify-content:space-between; gap:12px; margin-top:24px; padding-top:16px; border-top:1px solid #e5e7eb; }
+
