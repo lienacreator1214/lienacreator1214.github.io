@@ -10,9 +10,10 @@
     <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
   </head>
   <body>
-    <div class="wrapper">
-      <header>
-        <!-- 左側卡片（原樣保留） -->
+    <div class="layout">
+      
+      <!-- 左側欄：個人卡片 -->
+      <aside class="sidebar">
         <div class="profile-card">
           <img class="profile-avatar" src="{{ site.baseurl }}/assets/uploads/avatar.png" alt="我的頭像">
           <a href="{{ '/' | relative_url }}"><h1>燕雀</h1></a>
@@ -25,28 +26,34 @@
             <a href="https://github.com/lienacreator1214" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
           </div>
         </div>
-      </header>
+      </aside>
 
-      <!-- 導覽列：插在左欄之後、內容之前 -->
-      <nav class="site-nav">
-        <ul>
-          <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>首頁</a></li>
-          <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about' or page.url == '/about.html' %}aria-current="page"{% endif %}>關於我</a></li>
-          <li><a href="{{ '/blog' | relative_url }}" {% if page.url == '/blog' or page.url == '/blog.html' %}aria-current="page"{% endif %}>文章列表</a></li>
-          <li><a href="{{ '/tags' | relative_url }}" {% if page.url == '/tags' or page.url == '/tags.html' %}aria-current="page"{% endif %}>標籤</a></li>
-        </ul>
-      </nav>
+      <!-- 右側欄：導覽列 + 內容 -->
+      <main class="page-content">
+        
+        <!-- 導覽列 -->
+        <nav class="site-nav">
+          <ul>
+            <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>首頁</a></li>
+            <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about' or page.url == '/about.html' %}aria-current="page"{% endif %}>關於我</a></li>
+            <li><a href="{{ '/blog' | relative_url }}" {% if page.url == '/blog' or page.url == '/blog.html' %}aria-current="page"{% endif %}>文章列表</a></li>
+            <li><a href="{{ '/tags' | relative_url }}" {% if page.url == '/tags' or page.url == '/tags.html' %}aria-current="page"{% endif %}>標籤</a></li>
+          </ul>
+        </nav>
 
-      <section>
-        {{ content }}
-      </section>
+        <!-- 頁面內容 -->
+        <section>
+          {{ content }}
+        </section>
 
-      <footer>
-        {% if site.github.is_project_page %}
-        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
-        {% endif %}
-        <p><small>Hosted on GitHub Pages — Theme by <a href="https://github.com/pages-themes/minimal">Minimal</a></small></p>
-      </footer>
+        <!-- 頁尾 -->
+        <footer>
+          {% if site.github.is_project_page %}
+          <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+          {% endif %}
+          <p><small>Hosted on GitHub Pages — Theme by <a href="https://github.com/pages-themes/minimal">Minimal</a></small></p>
+        </footer>
+      </main>
     </div>
   </body>
 </html>
