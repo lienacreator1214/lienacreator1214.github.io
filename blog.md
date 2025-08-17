@@ -1,9 +1,9 @@
 ---
-layout: with-nav
+layout: page-with-nav
 title: 文章列表
 ---
 
-<h1 style="display:none">文章列表</h1> <!-- 想保留語意就留這行，純視覺可刪 -->
+<h1 style="display:none">文章列表</h1>
 
 {% assign total = site.posts | size %}
 <p style="color:#6b7280; margin:6px 0 12px;">共 {{ total }} 篇文章</p>
@@ -24,8 +24,6 @@ title: 文章列表
 </ul>
 
 <script>
-// 讀取網址參數並篩選（tag）
-// 用法：/blog?tag=Jekyll
 (function () {
   var params = new URLSearchParams(location.search);
   var tag = params.get('tag');
