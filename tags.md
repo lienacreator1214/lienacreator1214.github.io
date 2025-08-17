@@ -1,14 +1,15 @@
 ---
-layout: with-nav
+layout: page-with-nav
 title: 標籤
 ---
 
-<p style="color:#6b7280; margin-top:6px;">ㅤ</p>
+<h1 style="display:none">標籤</h1>
+
 <ul>
-  {% assign alltags = site.posts | map: "tags" | compact | join: "," | split: "," | uniq | sort %}
-  {% for t in alltags %}
-    {% if t != "" %}
-      <li><a href="{{ '/blog' | relative_url }}?tag={{ t | strip | uri_escape }}">{{ t | strip }}</a></li>
-    {% endif %}
-  {% endfor %}
+{% assign tags_all = site.tags | sort %}
+{% for t in tags_all %}
+  {% assign tag_name = t[0] %}
+  {% assign posts_in_tag = t[1] %}
+  <li><a href="{{ '/blog' | relative_url }}?tag={{ tag_name | uri_escape }}">{{ tag_name }}</a> ({{ posts_in_tag | size }})</li>
+{% endfor %}
 </ul>
