@@ -1,23 +1,8 @@
-<!doctype html>
-<html lang="{{ site.lang | default: 'zh-Hant' }}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ page.title }} | {{ site.title }}</title>
+---
+layout: default
+---
 
-    {%- comment -%}
-    主題/自訂樣式：若你的主題有主要 css，保留；custom.css 是你放導覽列與側欄樣式的地方
-    {%- endcomment -%}
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
-  </head>
-  <body>
-    <div class="wrapper">
-
-      {%- comment -%}
-      導覽列（沿用你現在的簡約版）
-      {%- endcomment -%}
-      <nav class="site-nav">
+       <nav class="site-nav">
         <ul>
           <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>首頁</a></li>
           <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about' or page.url == '/about.html' %}aria-current="page"{% endif %}>關於我</a></li>
@@ -26,29 +11,19 @@
         </ul>
       </nav>
 
-      {%- comment -%}
-      左側欄（保持你原本的卡片/頭像/自介區；如果你的 default.html 左欄不是這樣，可改為 include 或直接刪除此 header）
-      {%- endcomment -%}
-      <header>
-        {# 可放你左側卡片，如： #}
-        {# <div class="profile-card">…</div> #}
-      </header>
-
       <section>
         <article class="post">
           <header class="post-header">
             <h1 class="post-title">{{ page.title }}</h1>
-            {# 顯示日期，已移除 by #}
             <p class="post-meta-date">{{ page.date | date: "%Y-%m-%d" }}</p>
           </header>
-
           <div class="post-content">
             {{ content }}
           </div>
-
           {%- comment -%}
           文末：標籤（你現在只保留 tags）
           {%- endcomment -%}
+          
           {% assign tags = page.tags | default: "" %}
           {% if tags != "" and tags.size > 0 %}
           <hr class="post-sep">
@@ -80,10 +55,3 @@
           {% endif %}
         </article>
       </section>
-
-      <footer>
-        <p><small>Hosted on GitHub Pages — Theme: Minimal</small></p>
-      </footer>
-    </div>
-  </body>
-</html>
