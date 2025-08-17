@@ -19,3 +19,7 @@ collections:
       - { label: "發佈日期", name: "date", widget: "datetime" }
       - { label: "標籤", name: "tags", widget: "list", default: [] }
       - { label: "內文", name: "body", widget: "markdown" }
+      - label: "版型"
+        name: "layout"
+        widget: "hidden"
+        default: "post-with-nav”
