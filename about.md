@@ -1,5 +1,5 @@
 ---
-layout: with-nav
+layout: page-with-nav
 title: 關於我
 ---
 
