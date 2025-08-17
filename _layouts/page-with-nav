@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'zh-Hant' }}">
+  <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title | default: site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/custom.css' | relative_url }}">
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <!-- 左側卡片（原樣保留） -->
+        <div class="profile-card">
+          <img class="profile-avatar" src="{{ site.baseurl }}/assets/uploads/avatar.png" alt="我的頭像">
+          <a href="{{ '/' | relative_url }}"><h1>燕雀</h1></a>
+          <p class="profile-bio">我會在這裡寫下更長的東西。</p>
+          <div class="profile-links">
+            <a href="https://www.threads.net/@brambling___" target="_blank" rel="noopener"><i class="fa-brands fa-threads"></i> Threads</a>
+            <a href="https://www.youtube.com/@ZN._.1214-channel" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> YouTube</a>
+            <a href="https://instagram.com/zn._.1214" target="_blank" rel="noopener"><i class="fab fa-instagram"></i> Instagram</a>
+            <a href="mailto:lienacreator1214@gmail.com"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://github.com/lienacreator1214" target="_blank" rel="noopener"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+      </header>
+
+      <!-- 導覽列：插在左欄之後、內容之前 -->
+      <nav class="site-nav">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>首頁</a></li>
+          <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about' or page.url == '/about.html' %}aria-current="page"{% endif %}>關於我</a></li>
+          <li><a href="{{ '/blog' | relative_url }}" {% if page.url == '/blog' or page.url == '/blog.html' %}aria-current="page"{% endif %}>文章列表</a></li>
+          <li><a href="{{ '/tags' | relative_url }}" {% if page.url == '/tags' or page.url == '/tags.html' %}aria-current="page"{% endif %}>標籤</a></li>
+        </ul>
+      </nav>
+
+      <section>
+        {{ content }}
+      </section>
+
+      <footer>
+        {% if site.github.is_project_page %}
+        <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
+        {% endif %}
+        <p><small>Hosted on GitHub Pages — Theme by <a href="https://github.com/pages-themes/minimal">Minimal</a></small></p>
+      </footer>
+    </div>
+  </body>
+</html>
