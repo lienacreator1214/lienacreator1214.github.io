@@ -8,7 +8,6 @@ layout: default
     <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>首頁</a></li>
     <li><a href="{{ '/about' | relative_url }}" {% if page.url == '/about' or page.url == '/about.html' %}aria-current="page"{% endif %}>關於我</a></li>
     <li><a href="{{ '/blog' | relative_url }}" {% if page.url == '/blog' or page.url == '/blog.html' %}aria-current="page"{% endif %}>文章列表</a></li>
-    <li><a href="{{ '/categories' | relative_url }}" {% if page.url == '/categories' or page.url == '/categories.html' %}aria-current="page"{% endif %}>分類</a></li>
     <li><a href="{{ '/tags' | relative_url }}" {% if page.url == '/tags' or page.url == '/tags.html' %}aria-current="page"{% endif %}>標籤</a></li>
   </ul>
 </nav>
