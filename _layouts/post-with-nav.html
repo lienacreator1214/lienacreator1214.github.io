@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <!-- 導覽列：置頂、跨全寬 -->
+    <!-- 導覽列（滿版頂端） -->
     <nav class="site-nav">
       <ul>
         <li><a href="{{ '/' | relative_url }}" {% if page.url == '/' or page.url == '/index.html' %}aria-current="page"{% endif %}>首頁</a></li>
@@ -21,9 +21,8 @@
       </ul>
     </nav>
 
-    <!-- 兩欄區 -->
+    <!-- 兩欄：左卡片｜右文章 -->
     <div class="layout">
-      <!-- 左側卡片 -->
       <aside class="sidebar">
         <div class="profile-card">
           <img class="profile-avatar" src="{{ site.baseurl }}/assets/uploads/avatar.png" alt="我的頭像">
@@ -39,7 +38,6 @@
         </div>
       </aside>
 
-      <!-- 右側文章 -->
       <main class="page-content">
         <article class="post">
           <header class="post-header">
@@ -79,7 +77,6 @@
           {% endif %}
         </article>
 
-        <!-- 頁尾 -->
         <footer class="site-footer">
           {% if site.github.is_project_page %}
           <p>This project is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a></p>
