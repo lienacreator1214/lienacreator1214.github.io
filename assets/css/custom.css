@@ -100,3 +100,57 @@
      以免把內文推到右邊。
   2) 若 style.css 有對 section / article 額外 float/inline-block，請移除。
 ================================================ */
+
+
+/* --- 防止舊規則影響：清掉 float / margin-left --- */
+section, article, .post, .post-header, .post-content { float:none !important; display:block; }
+.page-content, .post-content { margin-left:0 !important; }
+
+/* --- 導覽列底下與主版面間距 --- */
+.site-nav + .layout { margin-top: 12px; }
+
+/* --- 兩欄與中線（全高中線） --- */
+:root{
+  --sidebar: 260px;
+  --gap: 24px;
+  --divider: #e5e7eb;
+}
+.layout{
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--sidebar) 1fr;
+  gap: var(--gap);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px 24px;
+}
+.layout::before{
+  content:"";
+  position:absolute; top:0; bottom:0;
+  left: calc(var(--sidebar) + var(--gap)/2);
+  width:1px; background: var(--divider);
+}
+
+/* 左欄卡片（不要再畫邊線，避免兩條） */
+.sidebar{ position:sticky; top:32px; align-self:start; padding-right:16px; border-right:none; }
+
+/* 右欄文章：標題→日期→分隔線→內文 */
+.post-header{ margin:0 0 16px !important; }
+.post-title{ margin:0 0 6px !important; }
+.post-meta-date{ margin:0 !important; color:#6b7280; }
+.post-title-sep{ margin:10px 0 0 !important; border:none; border-top:1px solid var(--divider); }
+.post-content{ margin-top:16px !important; }
+.post-content::after{ content:""; display:block; clear:both; }
+
+/* 首頁右欄首元素去掉多餘上外距，避免看起來空很大塊 */
+.page-content > *:first-child { margin-top: 0 !important; }
+
+/* 手機：上下堆疊，隱藏中線 */
+@media (max-width:768px){
+  .layout{ grid-template-columns:1fr; }
+  .layout::before{ display:none; }
+  .sidebar{
+    position:relative; top:auto; padding-right:0; margin-bottom:16px;
+    border-bottom:1px solid var(--divider);
+  }
+}
