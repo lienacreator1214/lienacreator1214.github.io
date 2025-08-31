@@ -154,3 +154,32 @@ section, article, .post, .post-header, .post-content { float:none !important; di
     border-bottom:1px solid var(--divider);
   }
 }
+
+
+
+
+
+/* 讓標題區成為獨立區塊，避免被浮動干擾 */
+.post-header{
+  margin: 0 0 12px !important;
+  border-bottom: none !important;      /* 我們用 <hr> 當分隔線 */
+}
+.post-header::after{
+  content:""; display:block; clear:both; /* 清掉可能的浮動 */
+}
+
+/* 標題下的分隔線一定顯示成區塊 */
+.post-title-sep{
+  display:block;
+  margin: 8px 0 0 !important;
+  border:0;
+  border-top:1px solid var(--divider, #e5e7eb);
+}
+
+/* 讓內文「從分隔線下方」開始，並阻止外距折疊/浮動侵入 */
+.post-content{
+  margin-top: 0 !important;   /* 避免外距和上方折疊 */
+  padding-top: 14px !important; /* 舒適的空隙（在分隔線下） */
+  display: flow-root;          /* 建立 BFC，防浮動與外距折疊 */
+  clear: both;                 /* 再保險一次：一定在標題區之下 */
+}
